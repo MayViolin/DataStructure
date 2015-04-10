@@ -51,3 +51,21 @@ void releaseList(LinkedList *list) {
     cur = temp;
   }
 }
+
+int findMiddleNode(LinkedList *list) {
+  if (NULL == list) {
+    return -1;
+  }
+  Node *oneStep = list->next;
+  Node *twoStep = oneStep;
+
+  while (NULL != twoStep && NULL != twoStep->next) {
+    oneStep = oneStep->next;
+    twoStep = twoStep->next->next;
+  }
+  return oneStep->data;
+}
+
+LinkedList * reverseList(LinkedList *list) {
+
+}

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1428657168 source:d:\mycode\c_langurage\data_structure\datastructure\main.c
+	<stdlib.h>
+	"linkedList.h"
+
+1428657498 d:\mycode\c_langurage\data_structure\datastructure\linkedlist.h
+
