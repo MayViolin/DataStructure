@@ -38,7 +38,7 @@ LinkedList * createList(int arr[], int size) {
 void printList(LinkedList* list) {
   Node* cur = list->next;
   while (NULL != cur) {
-    printf("%d", cur->data);
+    printf("%d ", cur->data);
     cur = cur->next;
   }
 }
@@ -67,5 +67,123 @@ int findMiddleNode(LinkedList *list) {
 }
 
 LinkedList * reverseList(LinkedList *list) {
+  return NULL;
+}
 
+int findPosition(LinkedList *list, int elem) {
+  if (NULL == list) {
+    return -1;
+  }
+  Node* cur = list->next;
+  int position = 0;
+  while (cur) {
+    if (cur->data == elem) {
+      return position;
+    }
+    cur = cur->next;
+    position++;
+  }
+  return -1;
+}
+
+int findInsertPos(LinkedList *list, int elem) {
+  if (NULL == list) {
+    return -1;
+  }
+  int position = 0;
+  Node *cur = list->next;
+  while (cur) {
+    if (elem < cur->data) {
+      return position;
+    }
+    cur = cur->next;
+    position++;
+  }
+  return position - 1;
+}
+
+LinkedList * insertElem(LinkedList *list, int elem) {
+  if (NULL == list) {
+    return -1;
+  }
+  Node *pre = list;
+  Node *cur = list->next;
+  while (cur) {
+    if (elem < cur->data) {
+      Node* temp = (Node*)malloc(sizeof(Node));
+      temp->data = elem;
+      temp->next = cur;
+      pre->next = temp;
+      return list;
+    }
+    pre = pre->next;
+    cur = cur->next;
+  }
+  return list;
+}
+
+LinkedList * deleteElem(LinkedList *list, int elem) {
+
+}
+
+LinkedList * mergeList(LinkedList *listOne, LinkedList *listTwo) {
+  if (NULL == listOne && NULL == listTwo) {
+    return NULL;
+  } else if (NULL == listOne && NULL != listTwo) {
+    return listTwo;
+  } else if (NULL != listTwo && NULL == listOne) {
+    return listOne;
+  } else {
+    int mergeListSize = listOne->data + listTwo->data;
+    LinkedList * listMergeCur = (LinkedList*)malloc(sizeof(Node)*mergeListSize);
+    if (NULL == listMergeCur) return NULL;
+    Node* listOneCur = listOne->next;
+    Node* listTwoCur = listTwo->next;
+    listMergeCur->data = mergeListSize;
+    listMergeCur->next = NULL;
+    Node* listMerge = listMergeCur;
+    while (listOneCur && listTwoCur) {
+      Node* temp = (Node*)malloc(sizeof(Node));
+      if (NULL == temp) return NULL;
+      if (listOneCur->data < listTwoCur->data) {
+        temp->data = listOneCur->data;
+        temp->next = NULL;
+        listMergeCur->next = temp;
+        listMergeCur = temp;
+        listOneCur = listOneCur->next;
+      } else if (listOneCur->data > listTwoCur->data) {
+        temp->data = listTwoCur->data;
+        temp->next = NULL;
+        listMergeCur->next = temp;
+        listMergeCur = temp;
+        listTwoCur = listTwoCur->next;
+      } else {
+        temp->data = listTwoCur->data;
+        temp->next = NULL;
+        listMergeCur->next = temp;
+        listMergeCur = temp;
+        listOneCur = listOneCur->next;
+        listTwoCur = listTwoCur->next;
+      }
+    }
+    while (listOneCur) {
+      Node* temp = (Node*)malloc(sizeof(Node));
+      if (NULL == temp) return NULL;
+      temp->data = listOneCur->data;
+      temp->next = NULL;
+      listMergeCur->next = temp;
+      listMergeCur = temp;
+      listOneCur = listOneCur->next;
+    }
+    while (listTwoCur) {
+      Node* temp = (Node*)malloc(sizeof(Node));
+      if (NULL == temp) return NULL;
+      temp->data = listTwoCur->data;
+      temp->next = NULL;
+      listMergeCur->next = temp;
+      listMergeCur = temp;
+      listTwoCur = listTwoCur->next;
+    }
+    return listMerge;
+  }
 }

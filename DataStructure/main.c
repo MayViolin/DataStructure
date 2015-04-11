@@ -4,17 +4,23 @@
 
 int main(void)
 {
-    int a[] = {1,2,3,4,5,6,7,8,9,10};
-    int size = 10;
+    int a[] = {1,3,5,7,9};
+    int b[] = {2,4,6};
+    int size = 5;
 
-    LinkedList *list;
-    list = createList(a,size);
-    if (NULL != list) {
-      printList(list);
-    } else {
-      printf("Error!\n");
-    }
-    printf("%d",findMiddleNode(list));
-    releaseList(list);
+    LinkedList *listOne;
+    LinkedList *listTwo;
+    LinkedList *listThree;
+    listOne = createList(a,size);
+    listTwo = createList(b,3);
+
+    listThree = mergeList(listOne, listTwo);
+    printList(listThree);
+    //printf("\n%d\n",findInsertPos(listOne,8));
+    listOne = insertElem(listOne, 8);
+    printList(listOne);
+    releaseList(listOne);
+    releaseList(listTwo);
+    releaseList(listThree);
     return 0;
 }
