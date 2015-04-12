@@ -16,35 +16,49 @@ Stack * initStack(Stack *myStack) {
     return myStack;
 }
 
-bool largerStack(Stack *myStack) {
+int largerStack(Stack *myStack) {
     // Attention! If realloc() failed and return NULL, may lose the base of myStack!
     int * newBase = (int*)realloc(myStack->base, (myStack->stackSize + INITAIL_SIZE)*sizeof(int));
     if (NULL == newBase) {
-        return false;
+        return 0;
     }
     myStack->base = newBase;
     myStack->top = myStack->base + myStack->stackSize;
     myStack->stackSize = myStack->stackSize + INITAIL_SIZE;
-    return true;
+    return 1;
 }
 
-bool push(Stack *myStack, int elem) {
+int push(Stack *myStack, int elem) {
     if ((myStack->top - myStack->base) == myStack->stackSize) {
-        bool res = largerStack(myStack);
+        int res = largerStack(myStack);
         if (!res) {
-            return false;
+            return 0;
         }
     }
-    myStack->top++ = elem;
-    return true;
+    //Attention! may be wrong here!
+    *(myStack->top) = elem;
+    myStack->top++;
+    return 1;
 }
 
-bool pop(Stack *myStack, int *elem) {
+int pop(Stack *myStack, int *elem) {
     if (myStack->base == myStack->top) {
-        return false;
+        return 0;
     }
     *elem = *(--myStack->top);
-    return true;
+    return 1;
+}
+
+int printStack(Stack * myStack) {
+    if (NULL == myStack) {
+        return 0;
+    }
+    int * cur = myStack->base;
+    while (cur != myStack->top) {
+        printf("%d ",*cur);
+        cur++;
+    }
+    return 1;
 }
 
 
