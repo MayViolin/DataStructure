@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
-1428657168 source:d:\mycode\c_langurage\data_structure\datastructure\main.c
+1428917715 source:d:\mycode\c_langurage\data_structure\datastructure\main.c
 	<stdlib.h>
-	"linkedList.h"
+	"string.h"
 
 1428657498 d:\mycode\c_langurage\data_structure\datastructure\linkedlist.h
 
@@ -14,4 +14,8 @@
 1428810552 d:\mycode\c\datastructure\datastructure\queue.h
 
 1428811381 d:\mycode\c\datastructure\datastructure\stack.h
+
+1428902521 d:\mycode\c_langurage\data_structure\datastructure\stack.h
+
+1428917625 d:\mycode\c_langurage\data_structure\datastructure\string.h
 

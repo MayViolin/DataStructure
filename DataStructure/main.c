@@ -1,18 +1,20 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
-#include "stack.h"
+#include "string.h"
 
 int main(void)
 {
-    Stack mystack;
-    Stack * myStack = initStack(&mystack);
-    push(myStack, 3);
-    push(myStack, 4);
-    push(myStack, 5);
-    printStack(myStack);
-    int elem;
-    pop(myStack, &elem);
-    printf("\n%d\n",elem);
-    printStack(myStack);
+    String myString;
+    String myString2;
+    char a[] = {'a','b','c','d'};
+    char b[] = {'a','b','c'};
+    String * test = initString(&myString, a, 4);
+    String * testForEaqual = initString(&myString2,b,3);
+    String myStringTwo;
+    String * testTwo = copyString(&myStringTwo, test);
+    printString(test);
+    printf("\n");
+    printString(testForEaqual);
+    printf("%d",compareString(test, testForEaqual));
     return 0;
 }
