@@ -1,19 +1,17 @@
 #include <string.h>
+
 //KMP Algorithm
 void getNext(const char * str, int *next) {
-    int i = 1;
-    int j = 0;
-    next[0] = next[1] = 0;
+    int i = 0;
+    int j = -1;
+    next[0] = -1;
     while (i < strlen(str)) {
-        if (j == 0 && str[i] == str[j]) {
+        if (j == -1 || str[i] == str[j]) {
             i++;
             j++;
             next[i] = j;
-        } else if (j == 0 && str[i] != str[j]) {
-            i++;
-            next[i] = 0;
-        } else if (j != 0 && str[i] == str[j]) {
-
+        } else {
+            j = next[j];
         }
     }
 }
@@ -29,19 +27,20 @@ int kmp(const char * a, const char * b) {
     for (i = 0; i < strlen(b); i++) {
         printf("%d,", next[i]);
     }
+    printf("\n");
     i = 0;
-    int j = 0;
-    while (i < strlen(a) && j < strlen(b)) {
-        if (a[i] == b[j]) {
+    int j = -1;
+    while ((strlen(a) - i > 0) && (strlen(b) - j > 0)) {
+        if (j == -1 && i == 0) {
+            j++;
+        } else if (a[i] == b[j]) {
             i++;
             j++;
-        } else if (j == 0) {
-            i++;
         } else {
             j = next[j];
         }
     }
-    if (j > strlen(b))
+    if (strlen(b) - j <= 0)
         return i - strlen(b);
     else
         return -1;

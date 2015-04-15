@@ -39,7 +39,9 @@
 		</Unit>
 		<Unit filename="queue.h" />
 		<Unit filename="stack.h" />
+		<Unit filename="stackOfTree.h" />
 		<Unit filename="string.h" />
+		<Unit filename="tree.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
