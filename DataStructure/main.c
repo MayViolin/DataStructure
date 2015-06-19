@@ -1,19 +1,11 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
-#include "stringAlgorithm.h"
-#include "stackOfTree.h"
+#include "heap.h"
 
 int main(void)
 {
-    //const char * a = "ababcababc";
-    //const char * b = "abc";
-    //printf("%d", kmp(a,b));
-    TreeNode *myTree = createTree();
-    printf("\nPreTraverse:");
-    proOrderTraverse(myTree);
-    printf("\nInTraverse:");
-    inOrderTraverse(myTree);
-    printf("\nPostTraverse:");
-    postOrderTraverse(myTree);
+    int arr[] = {9,2,1,7,6,8,5,3,4};
+    heapSort(arr, 9);
+    printHeap(arr, 9);
     return 0;
 }

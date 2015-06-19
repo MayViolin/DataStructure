@@ -1,8 +1,7 @@
 # depslib dependency file v1.0
-1429069090 source:d:\mycode\c_langurage\data_structure\datastructure\main.c
+1434698950 source:d:\mycode\c_langurage\data_structure\datastructure\main.c
 	<stdlib.h>
-	"stringAlgorithm.h"
-	"tree.h"
+	"heap.h"
 
 1428657498 d:\mycode\c_langurage\data_structure\datastructure\linkedlist.h
 
@@ -25,8 +24,13 @@
 1428939314 d:\mycode\c\datastructure\datastructure\stringalgorithm.h
 	<string.h>
 
-1428994720 d:\mycode\c_langurage\data_structure\datastructure\stringalgorithm.h
+1429089841 d:\mycode\c_langurage\data_structure\datastructure\stringalgorithm.h
 	<string.h>
 
 1429069331 d:\mycode\c_langurage\data_structure\datastructure\tree.h
+
+1429070257 d:\mycode\c_langurage\data_structure\datastructure\stackoftree.h
+	"tree.h"
+
+1434699250 d:\mycode\c_langurage\data_structure\datastructure\heap.h
 
